@@ -47,37 +47,9 @@ static id _instance;
   if (_eventSink) _eventSink(_latestLink);
 }
 
-- (BOOL)application:(UIApplication *)application
-    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  NSURL *url = (NSURL *)launchOptions[UIApplicationLaunchOptionsURLKey];
-  self.initialLink = [url absoluteString];
-  self.latestLink = self.initialLink;
-  return YES;
-}
-
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
-  self.latestLink = [url absoluteString];
-  return YES;
-}
-
-- (BOOL)application:(UIApplication *)application
-    continueUserActivity:(NSUserActivity *)userActivity
-      restorationHandler:(void (^)(NSArray *_Nullable))restorationHandler {
-  if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
-    self.latestLink = [userActivity.webpageURL absoluteString];
-    if (!_eventSink) {
-      self.initialLink = self.latestLink;
-    }
-    return YES;
-  }
-  return NO;
-}
-
 - (void)handleMethodCall:(FlutterMethodCall *)call result:(FlutterResult)result {
   if ([@"getInitialLink" isEqualToString:call.method]) {
-    result(self.initialLink);
+    // result(self.initialLink);
     // } else if ([@"getLatestLink" isEqualToString:call.method]) {
     //     result(self.latestLink);
   } else {
