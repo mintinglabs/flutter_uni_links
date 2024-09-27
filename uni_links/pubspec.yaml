@@ -3,6 +3,10 @@ description: Flutter plugin for accepting incoming links - App/Deep Links (Andro
 version: 0.5.1
 homepage: https://github.com/avioli/uni_links/tree/master/uni_links
 
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: ">=3.24.0"
+
 dependencies:
   flutter:
     sdk: flutter
@@ -12,10 +16,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-environment:
-  sdk: '>=3.2.0 <4.0.0'
-  flutter: ">=3.16.6"
 
 flutter:
   plugin:
