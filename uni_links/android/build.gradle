@@ -4,7 +4,7 @@ version '0.4.0'
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
@@ -15,15 +15,17 @@ buildscript {
 rootProject.allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
+    if (project.android.hasProperty("namespace")) {
+        namespace 'presslogic.unilinks'
+    }
     compileSdkVersion 34
-    namespace 'presslogic.unilinks'
 
     defaultConfig {
         minSdkVersion 23
